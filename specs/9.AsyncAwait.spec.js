@@ -12,7 +12,7 @@ describe('Async/Await', () => {
     // wait is 100 so... 
     // if it waits it should be at least 100
     // make your bigger guess
-    expect(solveme).toBeLessThanOrEqual(stopTime - startTime);
+    expect(0).toBeLessThanOrEqual(stopTime - startTime);
   });
 
   it('javascript can emulate asynchronous code with async/await keywords', 
@@ -22,7 +22,7 @@ describe('Async/Await', () => {
       const stopTime = Date.now();
 
       // try a larger number now...
-      expect(solveme).toBeLessThanOrEqual(stopTime - startTime);
+      expect(99).toBeLessThanOrEqual(stopTime - startTime);
     }
   );
 
@@ -37,8 +37,8 @@ describe('Async/Await', () => {
       const stopTime = Date.now();
 
       // try the largest (until stop passing, then - 10) number for each case
-      expect(solveme).toBeLessThanOrEqual(lapTime - startTime);
-      expect(solveme).toBeLessThanOrEqual(stopTime - startTime);
+      expect(101).toBeLessThanOrEqual(lapTime - startTime);
+      expect(200).toBeLessThanOrEqual(stopTime - startTime);
     }
   );
 
@@ -53,8 +53,8 @@ describe('Async/Await', () => {
       const stopTime = Date.now();
 
       // try the largest (until stop passing, then - 10) number for each case
-      expect(solveme).toBeLessThanOrEqual(lapTime - startTime);
-      expect(solveme).toBeLessThanOrEqual(stopTime - startTime);
+      expect(0).toBeLessThanOrEqual(lapTime - startTime);
+      expect(101).toBeLessThanOrEqual(stopTime - startTime);
     }
   );
 
@@ -71,8 +71,8 @@ describe('Async/Await', () => {
       const stopTime = Date.now();
 
       // try the largest (until stop passing, then - 10) number for each case
-      expect(solveme).toBeLessThanOrEqual(lapTime - startTime);
-      expect(solveme).toBeLessThanOrEqual(stopTime - startTime);
+      expect(0).toBeLessThanOrEqual(lapTime - startTime);
+      expect(100).toBeLessThanOrEqual(stopTime - startTime);
     }
   );
 
@@ -86,7 +86,7 @@ describe('Async/Await', () => {
       thrown = true;
     }
 
-    expect(solveme).toBe(thrown);
+    expect(true).toBe(thrown);
   });
 
   it('without await throws are not cached', async () => {
@@ -99,7 +99,7 @@ describe('Async/Await', () => {
       thrown = true;
     }
 
-    expect(solveme).toBe(thrown);
+    expect(false).toBe(thrown);
     // but probably the console has a 
     // UnhandledPromiseRejectionWarning: Unhandled promise rejection
   });
@@ -110,15 +110,15 @@ describe('Async/Await', () => {
     const threeWithAwait = await asyncThree();
     const threeWithoutAwait = asyncThree();
 
-    expect(solveme).toBe(threeWithAwait);
-    expect(solveme).not.toBe(threeWithoutAwait);
+    expect(3).toBe(threeWithAwait);
+    expect("hint").not.toBe(threeWithoutAwait);
   });
 
-  it('if a function is async without await returns a promise', async () => {
+  fit('if a function is async without await returns a promise', async () => {
     const asyncThree = async () => 3;
     const threeWithoutAwait = asyncThree();
 
-    expect(solveme).toBeInstanceOf(Promise);
+    expect("hint").toBeInstanceOf(Promise);
   });
 
   it('you can create your own promises', async () => {
